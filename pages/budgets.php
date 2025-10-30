@@ -131,7 +131,8 @@ $budgets = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <label>Category:</label><br>
       <select name="category_id" required style="width:100%; padding:8px; margin-bottom:10px;">
         <?php
-          $cat = $connection->query("SELECT * FROM categories");
+          $cat = $connection->prepare("SELECT * FROM categories WHERE user_id = ?");
+          $cat->execute([$user_id]);
           while ($c = $cat->fetch(PDO::FETCH_ASSOC)) {
             echo "<option value='{$c['category_id']}'>{$c['category_name']}</option>";
           }
@@ -149,6 +150,7 @@ $budgets = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </div>
 
+
 <!--  EDIT BUDGET MODAL -->
 <div id="editModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); justify-content:center; align-items:center;">
   <div style="background:white; padding:30px; border-radius:10px; width:400px;">
@@ -158,7 +160,8 @@ $budgets = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <label>Category:</label><br>
       <select name="category_id" id="edit_category_id" required style="width:100%; padding:8px; margin-bottom:10px;">
         <?php
-          $cat = $connection->query("SELECT * FROM categories");
+          $cat = $connection->prepare("SELECT * FROM categories WHERE user_id = ?");
+          $cat->execute([$user_id]);
           while ($c = $cat->fetch(PDO::FETCH_ASSOC)) {
             echo "<option value='{$c['category_id']}'>{$c['category_name']}</option>";
           }
