@@ -13,7 +13,6 @@ $user_id = $_SESSION['user_id'];
 $message = "";
 $type = "success"; // default
 
-// ✅ Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
   $action = $_POST['action'];
 
@@ -65,12 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
   exit;
 }
 
-// ✅ Fetch categories
 $catStmt = $connection->prepare("SELECT * FROM categories WHERE user_id=:user_id");
 $catStmt->execute([':user_id' => $user_id]);
 $categories = $catStmt->fetchAll(PDO::FETCH_ASSOC);
 
-// ✅ Fetch transactions
 $sql = "SELECT t.transaction_id, t.type, t.amount, t.date, t.description, c.category_name
         FROM transactions t
         LEFT JOIN categories c ON t.category_id = c.category_id
@@ -83,20 +80,17 @@ $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <link rel="stylesheet" href="../assets/css/pages.css">
 
-<!-- ✅ PAGE CONTAINER -->
 <div class="page-container">
   <header class="content-header">
     <h1>Transactions</h1>
     <p>View and manage all your transactions.</p>
   </header>
 
-  <!-- ✅ TOOLS BAR -->
   <div class="transaction-tools">
     <input type="text" id="searchTransaction" placeholder="🔍 Search transactions..." />
     <button id="addTransactionBtn" class="btn-primary">+ Add Transaction</button>
   </div>
 
-  <!-- ✅ TRANSACTIONS TABLE -->
   <div class="transaction-table">
     <table>
       <thead>
@@ -145,7 +139,6 @@ $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </div>
 
-<!-- ✅ MODAL -->
 <div id="transactionModal" class="modal">
   <div class="modal-content">
     <h2 id="modalTitle">Add Transaction</h2>
@@ -185,7 +178,6 @@ $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </div>
 
-<!-- ✅ TOAST -->
 <div id="toastBox" class="toast-box"><span id="toastMessage"></span></div>
 
 <!-- JS -->
