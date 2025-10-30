@@ -9,7 +9,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
 
   echo "<script>
           alert('You have been logged out successfully.');
-          window.location.href = '../users/login.php';
+          window.location.href = '../../index.html';
         </script>";
   exit();
 }
@@ -30,7 +30,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
       background: transparent;
     }
 
-    /* 🌈 Overlay Background */
+    /*  Overlay Background */
     .logout-page .logout-overlay {
       position: fixed;
       inset: 0;
@@ -44,7 +44,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
       animation: logoutFadeIn 0.3s ease-in-out;
     }
 
-    /* 💎 Modal Container */
+    /*  Modal Container */
     .logout-page .logout-box {
       background: linear-gradient(145deg, #ffffff 0%, #f3f7fb 100%);
       padding: 35px 40px;
@@ -65,7 +65,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
       line-height: 1.4;
     }
 
-    /* 🔘 Buttons */
+    /*  Buttons */
     .logout-page .logout-actions {
       display: flex;
       justify-content: center;
@@ -104,7 +104,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
       transform: translateY(-2px);
     }
 
-    /* ✨ Animations */
+    /*  Animations */
     @keyframes logoutFadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
