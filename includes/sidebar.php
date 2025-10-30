@@ -6,7 +6,6 @@ if (session_status() === PHP_SESSION_NONE) {
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
-<!-- ====== Sidebar Section ====== -->
 <aside class="cm-sidebar">
   <div class="cm-sidebar-inner">
 
@@ -35,7 +34,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
           <a href="budgets.php"><i class="lni lni-target"></i> Budget</a>
         </li>
 
-        <!-- 🔽 Reports Dropdown -->
         <?php
         $report_pages = ['report_pie.php', 'report_bar.php', 'report_line.php'];
         $is_report_active = in_array($current_page, $report_pages);
@@ -57,7 +55,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
             </li>
           </ul>
         </li>
-        <!-- 🔼 End Reports Dropdown -->
 
         <li class="<?php echo ($current_page == 'profile.php') ? 'active' : ''; ?>">
           <a href="profile.php"><i class="lni lni-user"></i> Profile</a>
@@ -71,11 +68,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
   </div>
 </aside>
 
-<!-- ====== Sidebar Styles ====== -->
 <link rel="stylesheet" href="../assets/css/includes.css">
 <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
-<!-- ====== Dropdown Script ====== -->
 <script>
 function toggleDropdown(event) {
   event.preventDefault();
@@ -83,11 +78,9 @@ function toggleDropdown(event) {
   const dropdown = item.querySelector('.sidebar-dropdown');
   const isOpen = dropdown.style.display === 'block';
   
-  // Close all other dropdowns
   document.querySelectorAll('.sidebar-dropdown').forEach(d => d.style.display = 'none');
   document.querySelectorAll('.has-dropdown').forEach(i => i.classList.remove('open'));
 
-  // Toggle current
   dropdown.style.display = isOpen ? 'none' : 'block';
   item.classList.toggle('open', !isOpen);
 }
