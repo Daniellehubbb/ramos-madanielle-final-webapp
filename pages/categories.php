@@ -34,7 +34,6 @@ if (!isset($_SESSION['user_id'])) {
     <div class="categories-grid" id="categoriesContainer"></div>
   </div>
 
-  <!-- ADD MODAL -->
   <div id="addCategoryModal" class="category-modal">
     <div class="category-modal-content">
       <h2>Add Category</h2>
@@ -45,7 +44,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
-  <!-- EDIT MODAL -->
   <div id="editCategoryModal" class="category-modal">
     <div class="category-modal-content">
       <h2>Edit Category</h2>
@@ -57,7 +55,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
-  <!-- DELETE MODAL -->
   <div id="deleteCategoryModal" class="category-modal">
     <div class="category-modal-content">
       <h2>Confirm Deletion</h2>
@@ -70,7 +67,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
-  <!-- ✅ Toast container -->
 <div id="toastBox" class="toast-box"><span id="toastMessage"></span></div>
 
 <script src="../assets/js/pages.js"></script>
