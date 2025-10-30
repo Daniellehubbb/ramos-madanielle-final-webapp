@@ -1,8 +1,6 @@
 <?php
-// Start session para magamit sa login tracking
 session_start();
 
-// Include database connection (PDO)
 include('../../connection/dbconn.php');
 
 $error = "";
@@ -12,13 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $password = $_POST['password'];
 
   try {
-    // Check if user exists
     $query = "SELECT * FROM users WHERE email = :email";
     $stmt = $connection->prepare($query);
     $stmt->execute([':email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Verify password and user existence
+    // Verify password
     if ($user && password_verify($password, $user['password'])) {
       // Store user info in session
       $_SESSION['user_id'] = $user['user_id'];
