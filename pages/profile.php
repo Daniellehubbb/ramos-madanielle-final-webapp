@@ -32,7 +32,6 @@ try {
 
 <link rel="stylesheet" href="../assets/css/pages.css">
 
-<!-- PROFILE PAGE -->
 <div class="profile-page-wrapper">
   <div class="profile-page-header">
     <h1>Profile</h1>
@@ -50,7 +49,6 @@ try {
       <button class="profile-page-edit-btn" id="openEditModal">Edit Profile</button>
     </div>
 
-    <!-- RIGHT CARD -->
     <div class="profile-page-card profile-page-info">
       <h3>Personal Information</h3>
 
@@ -81,7 +79,6 @@ try {
   </div>
 </div>
 
-<!-- 🔹 MODAL -->
 <div class="profile-page-modal" id="editProfileModal">
   <div class="profile-page-modal-content">
     <span class="profile-page-close-btn" id="closeEditModal">&times;</span>
@@ -115,8 +112,6 @@ try {
   </div>
 </div>
 
-
-<!-- 🔹 MODAL SCRIPT -->
 <script>
   const openModal = document.getElementById('openEditModal');
   const closeModal = document.getElementById('closeEditModal');
